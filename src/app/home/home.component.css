@@ -1,0 +1,209 @@
+body {
+    /* background-color: #F3F3F3; */
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+.w-nav {
+    display: flex;
+    height: 60px;
+    background-color: rgba(69, 182, 182, 0.726);
+}
+
+.nav-logo {
+    position: relative;
+    left: 30px;
+}
+
+.nav-logo>p {
+    color: red;
+    display: block;
+    font-size: 40px;
+}
+
+.nav-sign {
+    /* position: relative;
+    right: 0px; */
+    position: absolute;
+    right: 30px;
+    display: flex;
+    margin-top: 10px;
+}
+
+.nav-login {
+    margin-right: 10px;
+}
+
+.nav-login>button {
+    width: 80px;
+}
+
+.nav-signup {
+    margin: 0 10px;
+}
+
+.nav-signup>button {
+    width: 80px;
+}
+
+.nav-logout {
+    margin-left: 10px;
+}
+
+.nav-logout>button {
+    width: 80px;
+}
+
+.sudel {
+    border: 1px rgb(223, 216, 216) solid;
+    height: 34px;
+}
+
+.context-box {
+    height: 800px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.left-box {
+    height: 100%;
+    /* display: flex; */
+    /* margin-left: 2px; */
+    border: 2px rgb(62, 197, 186) solid;
+}
+
+.right-box {
+    height: 100%;
+    border: 2px rgb(196, 124, 30) solid;
+}
+
+.dv-flex {
+    display: flex;
+}
+
+.dv-margin-tb {
+    margin: 5px 0px;
+}
+
+.dv-margin-tb-x2 {
+    margin: 10px 0px;
+}
+
+.dv-margin-lr {
+    margin: 0px 5px;
+}
+
+.dv-padding-lr {
+    padding: 0 15px;
+}
+
+.dv-magin-t {
+    margin-top: 15px;
+}
+
+.tab-group {
+    margin-top: 10px;
+}
+
+.left-btn {
+    width: 101px;
+}
+
+.shopping-cart {
+    color: rgba(185, 48, 151, 0.89);
+    margin: 0 35px;
+}
+
+.shopping-cart:hover {
+    font-size: 40px;
+}
+
+.glyphicon-shopping-cart {
+    font-size: 30px;
+}
+
+.item-search {
+    display: flex;
+    margin-left: 30%;
+    margin-top: 10px;
+}
+
+.item-search>button {
+    height: 34px;
+    margin: 0 10px;
+}
+
+.item-content {
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.item-nav {
+    position: relative;
+    left: 50%;
+    bottom: 10px;
+}
+
+
+/* @media (max-width: @screen-xs-max) { */
+
+@media screen and (max-width: 767px) {
+    .nav-sign {
+        margin-top: 10px;
+    }
+    .left-box {
+        height: 18%;
+        border: 2px rgb(196, 124, 30) solid;
+    }
+    .right-box {
+        height: 82%;
+        border: 2px rgb(62, 197, 186) solid;
+    }
+    .dv-padding-r {
+        padding-right: 0px;
+    }
+    .left-input {
+        width: 60px;
+    }
+    .tab-group>ul>li {
+        width: 80px;
+    }
+    .left-btn {
+        width: 60px;
+    }
+    .dropdown>button {
+        width: 60px;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .left-input {
+        width: 80%;
+    }
+    .dv-flex {
+        display: block;
+    }
+    .dropdown>button {
+        width: 80%;
+    }
+    .left-box-ch {
+        position: absolute;
+        left: 20%;
+    }
+    .left-btn {
+        width: 80%;
+        height: 35px;
+    }
+    /* .shopping-cart {
+        position: fixed;
+        right: 16px;
+        top: 150px;
+        z-index: 10;
+        margin: 0 60px 0 3px;
+    } */
+}

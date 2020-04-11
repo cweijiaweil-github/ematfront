@@ -1,1 +1,280 @@
-<p>home works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>login</title>
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="container">
+        <div class="row w-nav">
+            <div class="nav-logo">
+                <p>eMart</p>
+            </div>
+            <div class="nav-sign">
+                <div class="shopping-cart"><i class="glyphicon glyphicon-shopping-cart "></i></div>
+                <div class="nav-logout">
+                    <button type="button" class="btn btn-primary">logout</button>
+                </div>
+            </div>
+        </div>
+        <div class="row context-box ">
+            <div class="left-box col-xs-12 col-sm-2">
+                <div class="left-box-ch">
+                    <div class="row">
+                        <div class="dv-margin-tb col-xs-6 col-sm-12 dv-padding-r">
+                            <div class="dv-flex">
+                                <p>Start Price: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                <input type="text" class="left-input">
+                            </div>
+                        </div>
+                        <!-- display not = xs -->
+                        <div class="row hidden-xs dv-padding-lr">
+                            <div class="dv-margin-tb col-xs-6 col-sm-12">
+                                <div class="dv-flex">
+                                    <p>End Price:&nbsp;</p>
+                                    <input type="text" class="left-input">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- display = xs -->
+                        <div class="hidden-sm hidden-md hidden-lg">
+                            <div class="dv-margin-tb col-xs-6 col-sm-12">
+                                <div class="dv-flex">
+                                    <p>End Price:&nbsp;</p>
+                                    <input type="text" class="left-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="dv-margin-tb col-xs-12">
+                            <div class="dv-flex">
+                                <p>Manufacturer:&nbsp;</p>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    &nbsp;<i class="glyphicon glyphicon-option-horizontal"></i>&nbsp;
+                                    <span class="caret"></span>
+                                </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row dv-magin-t">
+                        <div class="col-xs-4"></div>
+                        <div class="col-xs-3 col-sm-11 col-xs-offset-1 dv-margin-tb-x2">
+                            <button class="left-btn">clear</button>
+                        </div>
+                        <div class="col-xs-3 col-sm-11 col-xs-offset-1 dv-margin-tb-x2">
+                            <button class="left-btn">filler</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-box col-xs-12 col-sm-10">
+                <div class="tab-group">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a id="a-buyer" href="#buyItem" data-toggle="tab"><span
+                                    class="hidden-xs">Buy
+                                    Item</span><i
+                                    class="hidden-sm hidden-md hidden-lg glyphicon glyphicon-home"></i></a></li>
+                        <li>
+                            <a id="a-seller" href="#purchaseHistory" data-toggle="tab"><span class="hidden-xs">Purchase
+                                    History</span><i
+                                    class="hidden-sm hidden-md hidden-lg glyphicon glyphicon glyphicon-time"></i></a>
+                        </li>
+                        <li>
+                            <a id="a-seller" href="#viewDisounts" data-toggle="tab"><span class="hidden-xs">View
+                                    Disounts</span><i
+                                    class="hidden-sm hidden-md hidden-lg glyphicon glyphicon-euro"></i></a></li>
+                        <li><a id="a-seller " href="#reports" data-toggle="tab"><span
+                                    class="hidden-xs">Reports</span><i
+                                    class="hidden-sm hidden-md hidden-lg glyphicon glyphicon-list-alt"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane active " id="buyItem">
+                        <div class="item-search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="products">
+                            </div>
+                            <button type="submit" class="btn btn-default">search</button>
+                        </div>
+                        <div class="">
+                            <h4><b>Search Results</b></h4>
+                        </div>
+                        <div class="item-content">
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>名称</th>
+                                        <th>城市</th>
+                                        <th>邮编</th>
+                                        <th>view</th>
+                                        <th>checkout</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Tanmay</td>
+                                        <td>Bangalore</td>
+                                        <td>560001</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Sachin</td>
+                                        <td>Mumbai</td>
+                                        <td>400003</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Uma</td>
+                                        <td>Pune</td>
+                                        <td>411027</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Uma</td>
+                                        <td>Pune</td>
+                                        <td>411027</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Uma</td>
+                                        <td>Pune</td>
+                                        <td>411027</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Uma</td>
+                                        <td>Pune</td>
+                                        <td>411027</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Uma</td>
+                                        <td>Pune</td>
+                                        <td>411027</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Uma</td>
+                                        <td>Pune</td>
+                                        <td>411027</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Uma</td>
+                                        <td>Pune</td>
+                                        <td>411027</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Uma</td>
+                                        <td>Pune</td>
+                                        <td>411027</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Uma</td>
+                                        <td>Pune</td>
+                                        <td>411027</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Uma</td>
+                                        <td>Pune</td>
+                                        <td>411027</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Uma</td>
+                                        <td>Pune</td>
+                                        <td>411027</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Uma</td>
+                                        <td>Pune</td>
+                                        <td>411027</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Uma</td>
+                                        <td>Pune</td>
+                                        <td>411027</td>
+                                        <td><button class="">view details</button></td>
+                                        <td><button class="">checkout</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="item-nav">
+                            <nav aria-label="...">
+                                <ul class="pagination">
+                                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                    ...
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="tab-pane " id="purchaseHistory">
+                        purchaseHistory
+                    </div>
+                    <div class="tab-pane " id="viewDisounts">
+                        viewDisounts
+                    </div>
+                    <div class="tab-pane " id="reports">
+                        reports
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

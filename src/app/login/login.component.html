@@ -35,10 +35,9 @@
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                                 <input type="email" class="form-control" id="email" placeholder="Email"
                                     formControlName='email' required>
-                                    <span class="glyphicon form-control-feedback w-asterisk" aria-hidden="false">*</span>
+                                <span class="glyphicon form-control-feedback w-asterisk" aria-hidden="false">*</span>
                             </div>
-                            <div *ngIf="email.invalid && (email.dirty || email.touched)"
-                                class="alert-danger valia">
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert-danger valia">
                                 <div *ngIf="email.errors.required">
                                     Email address is required.
                                 </div>
@@ -53,7 +52,7 @@
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                                 <input type="password" class="form-control" id="password" placeholder="Password"
                                     formControlName='password' required>
-                                    <span class="glyphicon form-control-feedback w-asterisk" aria-hidden="false">*</span>
+                                <span class="glyphicon form-control-feedback w-asterisk" aria-hidden="false">*</span>
                             </div>
                             <div *ngIf="password.invalid && (password.dirty || password.touched)"
                                 class="alert-danger valia">
@@ -65,15 +64,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
-                        <div class="form-group">
-                            <div class="col-xs-offset-6">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> Remember me
-                                    </label>
-                                </div>
-                            </div>
+                        <div class="loginbtn">
+                            <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
                         </div>
                     </form>
 

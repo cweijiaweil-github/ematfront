@@ -18,7 +18,6 @@ font-size: 40px;
 }
 .w-content{
     height: 500px;
-    width: 100%;
     background-color: #449EDD;
 }
 .w-box{
@@ -54,4 +53,7 @@ font-size: 40px;
     position: absolute;
     left: 40%;
     margin-top: 20px;
+}
+.loginbtn{
+    margin-top: 50px;
 }
