@@ -1,59 +1,95 @@
-body{
+body {
     background-color: #F3F3F3;
     margin: 0 auto;
     height: 100%;
     width: 100%;
 }
-.container{
+
+.container {
     width: 100%;
 }
-.logo{
+
+.logo {
     height: 80px;
     padding-top: 15px;
     text-align: center;
     color: rgb(25, 118, 180);
 }
-.logo > p{
-font-size: 40px;
+
+.logo>p {
+    font-size: 40px;
 }
-.w-content{
+
+.w-content {
     height: 500px;
     background-color: #449EDD;
 }
-.w-box{
+
+.w-box {
     height: 400px;
     background-color: #FFFFFF;
-    border-radius:25px;
+    border-radius: 25px;
     margin-top: 50px;
-    box-shadow:16px 17px 19px rgb(19, 109, 173);
+    box-shadow: 16px 17px 19px rgb(19, 109, 173);
 }
-.input-group-addon{
+
+.input-group-addon {
     background-color: #3B95D3;
     color: azure;
 }
-.formTop{
+
+.formTop {
     text-align: center;
     color: #3B95D3;
 }
-.formContent{
+
+.formContent {
     padding-top: 20px;
 }
-.valia{
+
+.valia {
     position: absolute;
     text-align: center;
 }
-.authCode{
+
+.authCode {
     width: 100px;
 }
+
 .endBox {
     background-color: #F3F3F3;
     height: 80px;
 }
-.endBox p{
+
+.endBox p {
     position: absolute;
     left: 40%;
     margin-top: 20px;
 }
-.loginbtn{
-    margin-top: 50px;
+
+.loginbtn {
+    margin-top: 40px;
+}
+
+.signup {
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+.signup>span {
+    font-size: 15px;
+}
+
+.signup>a {
+    text-decoration: none;
+}
+
+.signup>a:hover {
+    color: #00a0e9;
+    font-weight: bold;
 }
