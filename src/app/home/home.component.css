@@ -12,7 +12,7 @@ body {
 .w-nav {
     display: flex;
     height: 60px;
-    background-color: rgba(69, 182, 182, 0.726);
+    background-color: #3B95D3
 }
 
 .nav-logo {
@@ -21,7 +21,7 @@ body {
 }
 
 .nav-logo>p {
-    color: red;
+    color: #fff813;
     display: block;
     font-size: 40px;
 }
@@ -73,7 +73,7 @@ body {
 }
 
 .context-box {
-    height: 800px;
+    height: 750px;
     margin-top: 10px;
     font-weight: bold;
 }
@@ -84,7 +84,7 @@ body {
 }
 
 .right-box {
-    margin-left: -3px;
+    margin-left: -2px;
     height: 100%;
     overflow: hidden;
     border: 2px rgb(62, 197, 186) solid;
@@ -116,10 +116,6 @@ body {
 
 .tab-group {
     margin-top: 10px;
-}
-
-.left-btn {
-    width: 101px;
 }
 
 .shopping-cart {
@@ -154,7 +150,7 @@ body {
 }
 
 .item-content {
-    height: 600px;
+    height: 500px;
     overflow-y: scroll;
 }
 
@@ -184,7 +180,7 @@ body {
     padding: 0;
     margin-left: 5px;
     border: none;
-    max-height: 600px;
+    max-height: 560px;
 }
 
 
@@ -244,6 +240,14 @@ body {
     padding: 5px 10px;
 }
 
+.btn-caout {
+    padding-top: 30px;
+}
+
+.btn-car {
+    margin-right: 40px;
+}
+
 
 /* @media (max-width: @screen-xs-max) { */
 
@@ -252,7 +256,7 @@ body {
         margin-top: 10px;
     }
     .left-box {
-        height: 18%;
+        height: 20%;
         border: 2px rgb(196, 124, 30) solid;
     }
     .right-box {
@@ -269,7 +273,7 @@ body {
         width: 80px;
     }
     .left-btn {
-        width: 60px;
+        width: 90px;
     }
     .dropdown>button {
         width: 60px;
@@ -296,6 +300,7 @@ body {
 @media screen and (min-width: 767px) {
     .left-input {
         width: 80%;
+        height: 34px;
     }
     .dv-flex {
         display: block;
@@ -308,14 +313,9 @@ body {
         left: 20%;
     }
     .left-btn {
-        width: 80%;
-        height: 35px;
+        width: 90%;
+        height: 40px;
+        vertical-align: middle;
+        text-align: center;
     }
-    /* .shopping-cart {
-        position: fixed;
-        right: 16px;
-        top: 150px;
-        z-index: 10;
-        margin: 0 60px 0 3px;
-    } */
 }
