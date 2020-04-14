@@ -183,6 +183,21 @@ body {
     max-height: 560px;
 }
 
+.modal-footer>.btn-delete {
+    margin-right: 30px;
+}
+
+.modal-content {
+    margin-top: 100px;
+}
+
+
+/* .modal-footer>.btn-checkout {
+    border: 3px red solid;
+    position: absolute;
+    left: 20%;
+} */
+
 
 /* updated delete */
 

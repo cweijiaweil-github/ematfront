@@ -51,8 +51,7 @@
                         <div class="dv-flex">
                             <p>Manufacturer:&nbsp;</p>
                             <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                     <b>category &nbsp;</b>
                                     <span class="caret"></span>
                                 </button>
@@ -77,7 +76,7 @@
             </div>
         </div>
         <div class="right-box col-xs-12 col-sm-10">
-            <div class="shopping-cart"><img src="assets/icon/cart.png" alt="To shopping car" />
+            <div class="shopping-cart " data-target=".bd-example-modal-lg" data-toggle="modal"><img src="assets/icon/cart.png" alt="To shopping car" />
             </div>
             <div class="tab-group">
                 <ul class="nav nav-tabs">
@@ -89,8 +88,6 @@
                                 History</span><i
                                 class="hidden-sm hidden-md hidden-lg glyphicon glyphicon glyphicon-time"></i></a>
                     </li>
-                    <li><a id="" href="#reports" data-toggle="tab"><span class="hidden-xs">Reports</span><i
-                                class="hidden-sm hidden-md hidden-lg glyphicon glyphicon-list-alt"></i></a></li>
                 </ul>
             </div>
 
@@ -403,8 +400,120 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="tab-pane " id="reports">
-                    reports
+            </div>
+        </div>
+    </div>
+
+    <!-- shopping car modle -->
+    <div aria-hidden="true" aria-labelledby="myLargeModalLabel" class="modal fade bd-example-modal-lg" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="row">
+                        <h3 class="modal-title col-xs-11" id="savemodaLabel">
+                            Shopping Car
+                        </h3>
+                        <i class="glyphicon glyphicon-remove  col-xs-1" data-dismiss="modal"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th><input type="checkbox" name="" id=""></th>
+                                <th>category</th>
+                                <th>price</th>
+                                <th>count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><input type="checkbox" name="" id=""></td>
+                                <td>xiaomi</td>
+                                <td>56001</td>
+                                <td>
+                                    <i class="glyphicon glyphicon-plus"></i><span>4</span><i class=" glyphicon glyphicon-minus "></i></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><input type="checkbox" name="" id=""></td>
+                                <td>xiaomi</td>
+                                <td>56001</td>
+                                <td>
+                                    <i class="glyphicon glyphicon-plus"></i><span>2</span><i class=" glyphicon glyphicon-minus "></i></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><input type="checkbox" name="" id=""></td>
+                                <td>xiaomi</td>
+                                <td>56001</td>
+                                <td>
+                                    <i class="glyphicon glyphicon-plus"></i><span>8</span><i class=" glyphicon glyphicon-minus "></i></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><input type="checkbox" name="" id=""></td>
+                                <td>xiaomi</td>
+                                <td>56001</td>
+                                <td>
+                                    <i class="glyphicon glyphicon-plus"></i><span>9</span><i class=" glyphicon glyphicon-minus "></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><input type="checkbox" name="" id=""></td>
+                                <td>xiaomi</td>
+                                <td>56001</td>
+                                <td>
+                                    <i class="glyphicon glyphicon-plus"></i><span>3</span><i class=" glyphicon glyphicon-minus "></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><input type="checkbox" name="" id=""></td>
+                                <td>xiaomi</td>
+                                <td>56001</td>
+                                <td>
+                                    <i class="glyphicon glyphicon-plus"></i><span>5</span><i class=" glyphicon glyphicon-minus "></i></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><input type="checkbox" name="" id=""></td>
+                                <td>xiaomi</td>
+                                <td>56001</td>
+                                <td>
+                                    <i class="glyphicon glyphicon-plus"></i><span>12</span><i class=" glyphicon glyphicon-minus "></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><input type="checkbox" name="" id=""></td>
+                                <td>xiaomi</td>
+                                <td>56001</td>
+                                <td>
+                                    <i class="glyphicon glyphicon-plus"></i><span>23</span><i class=" glyphicon glyphicon-minus "></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><input type="checkbox" name="" id=""></td>
+                                <td>xiaomi</td>
+                                <td>56001</td>
+                                <td>
+                                    <i class="glyphicon glyphicon-plus"></i><span>5</span><i class=" glyphicon glyphicon-minus "></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer ">
+                    <button class="btn btn-primary btn-delete" type="button ">
+                        Delete
+                    </button>
+                    <button class="btn btn-primary btn-checkout" data-dismiss="modal" id="confirm " type="button ">
+                        Checkout
+                    </button>
                 </div>
             </div>
         </div>
