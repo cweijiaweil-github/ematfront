@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>login</title>
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <base href="">
+</head>
+
+<body>
+    <!-- <div class="container">
+      
+    </div> -->
+    <div class="row context-box ">
+        <div class="left-box col-xs-12 col-sm-2">
+            <div class="left-box-ch">
+                <div class="row">
+                    <div class="dv-margin-tb col-xs-6 col-sm-12 dv-padding-r">
+                        <div class="dv-flex">
+                            <p>Start Price: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                            <input type="text" class="left-input">
+                        </div>
+                    </div>
+                    <!-- display not = xs -->
+                    <div class="row hidden-xs dv-padding-lr">
+                        <div class="dv-margin-tb col-xs-6 col-sm-12">
+                            <div class="dv-flex">
+                                <p>End Price:&nbsp;</p>
+                                <input type="text" class="left-input">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- display = xs -->
+                    <div class="hidden-sm hidden-md hidden-lg">
+                        <div class="dv-margin-tb col-xs-6 col-sm-12">
+                            <div class="dv-flex">
+                                <p>End Price:&nbsp;</p>
+                                <input type="text" class="left-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dv-margin-tb col-xs-12">
+                        <div class="dv-flex">
+                            <p>Manufacturer:&nbsp;</p>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <b>category &nbsp;</b>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-3 col-sm-11 col-xs-offset-1 dv-margin-tb-x2">
+                        <button class="btn btn-primary left-btn" (click)="clearData()">Reset</button>
+                    </div>
+                    <div class="col-xs-3 col-sm-11 col-xs-offset-1 dv-margin-tb-x2">
+                        <button class="btn btn-primary btn-block left-btn">Filler</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-box col-xs-12 col-sm-10">
+            <div class="shopping-cart"><img src="assets/icon/cart.png" alt="To shopping car" />
+            </div>
+            <div class="tab-group">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a id="a-buyer" href="#buyItem" data-toggle="tab"><span class="hidden-xs">Buy
+                                Item</span><i class="hidden-sm hidden-md hidden-lg glyphicon glyphicon-home"></i></a>
+                    </li>
+                    <li>
+                        <a id="" href="#purchaseHistory" data-toggle="tab"><span class="hidden-xs">Purchase
+                                History</span><i
+                                class="hidden-sm hidden-md hidden-lg glyphicon glyphicon glyphicon-time"></i></a>
+                    </li>
+                    <li><a id="" href="#reports" data-toggle="tab"><span class="hidden-xs">Reports</span><i
+                                class="hidden-sm hidden-md hidden-lg glyphicon glyphicon-list-alt"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane active " id="buyItem">
+                    <div class="item-search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="products">
+                        </div>
+                        <button type="submit" class="btn btn-primary">search</button>
+                    </div>
+                    <div class="">
+                        <h4><b>Search Results</b></h4>
+                    </div>
+                    <div class="item-content">
+                        <!-- item Search Results -->
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>item_name</th>
+                                    <th>price</th>
+                                    <th>description</th>
+                                    <th>seller</th>
+                                    <th>view</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Tanmay</td>
+                                    <td>10212</td>
+                                    <td>560001</td>
+                                    <td>bellapa</td>
+                                    <td><button class="" (click)="viewDetails()">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Sachin</td>
+                                    <td>10212</td>
+                                    <td>400003</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Uma</td>
+                                    <td>10212</td>
+                                    <td>411027</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Uma</td>
+                                    <td>10212</td>
+                                    <td>411027</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Uma</td>
+                                    <td>10212</td>
+                                    <td>411027</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Uma</td>
+                                    <td>10212</td>
+                                    <td>411027</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Uma</td>
+                                    <td>10212</td>
+                                    <td>411027</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Uma</td>
+                                    <td>10212</td>
+                                    <td>411027</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Uma</td>
+                                    <td>10212</td>
+                                    <td>411027</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Uma</td>
+                                    <td>10212</td>
+                                    <td>411027</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Uma</td>
+                                    <td>10212</td>
+                                    <td>411027</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Uma</td>
+                                    <td>10212</td>
+                                    <td>411027</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Uma</td>
+                                    <td>10212</td>
+                                    <td>411027</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Uma</td>
+                                    <td>10212</td>
+                                    <td>411027</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Uma</td>
+                                    <td>10212</td>
+                                    <td>411027</td>
+                                    <td>bellapa</td>
+                                    <td><button class="">view details</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- item specifications -->
+                    <div class="row specifications">
+                        <div class="row item-title">
+                            <a href="" (click)="retSearchRel()"><i class="glyphicon glyphicon-chevron-left">Back</i></a>
+                            <div></div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div id="imgCircle" class="row carousel slide" data-ride="carousel" data-interval="3000">
+                                <!-- 轮播（Carousel）指标 -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#imgCircle" data-slide-to="0" class="active"></li>
+                                    <li data-target="#imgCircle" data-slide-to="1"></li>
+                                    <li data-target="#imgCircle" data-slide-to="2"></li>
+                                </ol>
+                                <!-- 轮播（Carousel）项目 -->
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <img class="img-thumbnail" src="assets/image/img1.jpg" alt="First slide">
+                                    </div>
+                                    <div class="item">
+                                        <img class="img-thumbnail" src="assets/image/img2.jpg" alt="Second slide">
+                                    </div>
+                                    <div class="item">
+                                        <img class="img-thumbnail" src="assets/image/img3.jpg" alt="Second slide">
+                                    </div>
+                                </div>
+                                <!-- 轮播（Carousel）导航：就是左右箭头，可省略 -->
+                                <a class="carousel-control left" href="#imgCircle" data-slide="prev">
+                                    <i class="glyphicon glyphicon-menu-left"></i>
+                                </a>
+                                <a class="carousel-control right" href="#imgCircle" data-slide="next">
+                                    <i class="glyphicon glyphicon-menu-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="">
+                                <span></span><span>Xiaomi/小米手机Redmi note8 pro红米note8pro全网通官方旗舰店</span>
+                            </div>
+                            <div class="res-centent ">
+                                <div>
+                                    <span>Price</span><span>¥1239.00</span>
+                                </div>
+                                <div>
+                                    <span>Seller</span><span>weijiawei</span>
+                                </div>
+                                <div>
+                                    <span>Screen Resolution</span><span>1200 * 768</span>
+                                </div>
+                                <div>
+                                    <span>Network Type</span><span>5G</span>
+                                </div>
+                                <div>
+                                    <span>Battery Capacity</span><span>24 hour</span>
+                                </div>
+                                <div>
+                                    <span>Memory Storage</span><span>8+128GB</span>
+                                </div>
+                                <div>
+                                    <span>Cameras</span><span>front(500M)</span>
+                                </div>
+                                <div>
+                                    <span>OS Version</span><span>Xiaolong 865</span>
+                                </div>
+                                <div class="btn-caout">
+                                    <button class="btn btn-primary btn-car">Add to Car</button>
+                                    <button class="btn btn-primary">Check out</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane " id="purchaseHistory">
+                    <!-- purchaseHistory -->
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>produce</th>
+                                <th>item_name</th>
+                                <th>price</th>
+                                <th>date</th>
+                                <th>view</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>xiaomi</td>
+                                <td>iPhone</td>
+                                <td>56001</td>
+                                <td>20200401</td>
+                                <td><button class="" (click)="viewDetails()">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>huawei</td>
+                                <td>compute</td>
+                                <td>59001</td>
+                                <td>20200401</td>
+                                <td><button class="">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>ibm</td>
+                                <td>kckdi</td>
+                                <td>59001</td>
+                                <td>20200401</td>
+                                <td><button class="">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>ibm</td>
+                                <td>kckdi</td>
+                                <td>59001</td>
+                                <td>20200401</td>
+                                <td><button class="">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>ibm</td>
+                                <td>kckdi</td>
+                                <td>59001</td>
+                                <td>20200401</td>
+                                <td><button class="">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>ibm</td>
+                                <td>kckdi</td>
+                                <td>59001</td>
+                                <td>20200401</td>
+                                <td><button class="">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>ibm</td>
+                                <td>kckdi</td>
+                                <td>59001</td>
+                                <td>20200401</td>
+                                <td><button class="">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>ibm</td>
+                                <td>kckdi</td>
+                                <td>59001</td>
+                                <td>20200401</td>
+                                <td><button class="">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>ibm</td>
+                                <td>kckdi</td>
+                                <td>59001</td>
+                                <td>20200401</td>
+                                <td><button class="">View</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane " id="reports">
+                    reports
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

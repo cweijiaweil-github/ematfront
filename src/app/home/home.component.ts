@@ -17,17 +17,5 @@ export class HomeComponent implements OnInit {
    
 
   }
-  viewDetails(){
-    $(".item-content").css("display","none");
-    $(".specifications").css("display","block");
-
-  }
-  retSearchRel(){
-    $(".specifications").css("display","none");
-    $(".item-content").css("display","block");
-  }
-  clearData(){
-    $(".left-input").val("");
-    $(".right-input").val("");
-  }
+  
 }
