@@ -263,6 +263,12 @@ body {
     margin-right: 40px;
 }
 
+.iconimg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
 
 /* @media (max-width: @screen-xs-max) { */
 

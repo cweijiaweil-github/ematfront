@@ -1,6 +1,13 @@
-input:hover{
+input:hover {
     border: #3B95D3 1.5px solid;
 }
-.w-asterisk{
+
+.w-asterisk {
     color: rgba(197, 31, 31, 0.651);
+}
+
+.iconimg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
