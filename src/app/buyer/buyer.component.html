@@ -24,7 +24,7 @@
                     <div class="dv-margin-tb col-xs-6 col-sm-12 dv-padding-r">
                         <div class="dv-flex">
                             <p>Start Price: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                            <input type="text" class="left-input">
+                            <input [(ngModel)]="startPrice" type="text" class="left-input">
                         </div>
                     </div>
                     <!-- display not = xs -->
@@ -32,7 +32,7 @@
                         <div class="dv-margin-tb col-xs-6 col-sm-12">
                             <div class="dv-flex">
                                 <p>End Price:&nbsp;</p>
-                                <input type="text" class="left-input">
+                                <input [(ngModel)]="endPrice" type="text" class="left-input">
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                         <div class="dv-margin-tb col-xs-6 col-sm-12">
                             <div class="dv-flex">
                                 <p>End Price:&nbsp;</p>
-                                <input type="text" class="left-input">
+                                <input [(ngModel)]="endPrice" type="text" class="left-input">
                             </div>
                         </div>
                     </div>
@@ -51,14 +51,17 @@
                         <div class="dv-flex">
                             <p>Manufacturer:&nbsp;</p>
                             <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <b>category &nbsp;</b>
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
+                                <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-white"
+                                    data-target="#" href="javascript:;"><span id="select-title">category &nbsp;</span> <span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                    <li><a href="javascript:;" data-index="1" data-title="一级菜单">一级菜单</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a href="javascript:;" data-index="2" data-title="一级菜单">一级菜单</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a data-index="2-1" href="javascript:;" data-title="二级菜单">二级菜单</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -70,13 +73,15 @@
                         <button class="btn btn-primary left-btn" (click)="clearData()">Reset</button>
                     </div>
                     <div class="col-xs-3 col-sm-11 col-xs-offset-1 dv-margin-tb-x2">
-                        <button class="btn btn-primary btn-block left-btn">Filler</button>
+                        <button (click)="findItemsByPriceAndFacturer()"
+                            class="btn btn-primary btn-block left-btn">Filler</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="right-box col-xs-12 col-sm-10">
-            <div class="shopping-cart " data-target=".bd-example-modal-lg" data-toggle="modal"><img src="assets/icon/cart.png" alt="To shopping car" />
+            <div class="shopping-cart " data-target=".bd-example-modal-lg" data-toggle="modal"><img
+                    src="assets/icon/cart.png" alt="To shopping car" />
             </div>
             <div class="tab-group">
                 <ul class="nav nav-tabs">
@@ -116,154 +121,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Tanmay</td>
-                                    <td>10212</td>
-                                    <td>560001</td>
-                                    <td>bellapa</td>
+                                <tr *ngFor="let item of items;index as i">
+                                    <td>{{i+1}}</td>
+                                    <td>{{item.item_name}}</td>
+                                    <td>{{item.price}}</td>
+                                    <td>{{item.description}}</td>
+                                    <td>{{item.seller}}</td>
                                     <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Sachin</td>
-                                    <td>10212</td>
-                                    <td>400003</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Uma</td>
-                                    <td>10212</td>
-                                    <td>411027</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Uma</td>
-                                    <td>10212</td>
-                                    <td>411027</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Uma</td>
-                                    <td>10212</td>
-                                    <td>411027</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Uma</td>
-                                    <td>10212</td>
-                                    <td>411027</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Uma</td>
-                                    <td>10212</td>
-                                    <td>411027</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Uma</td>
-                                    <td>10212</td>
-                                    <td>411027</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Uma</td>
-                                    <td>10212</td>
-                                    <td>411027</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Uma</td>
-                                    <td>10212</td>
-                                    <td>411027</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Uma</td>
-                                    <td>10212</td>
-                                    <td>411027</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Uma</td>
-                                    <td>10212</td>
-                                    <td>411027</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Uma</td>
-                                    <td>10212</td>
-                                    <td>411027</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Uma</td>
-                                    <td>10212</td>
-                                    <td>411027</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Uma</td>
-                                    <td>10212</td>
-                                    <td>411027</td>
-                                    <td>bellapa</td>
-                                    <td>
-                                        <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png" alt=""></a>
+                                        <a class="" (click)="viewDetails()"><img class="iconimg"
+                                                src="assets/icon/view.png" alt=""></a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -272,7 +138,7 @@
                     <!-- item specifications -->
                     <div class="row specifications">
                         <div class="row item-title">
-                            <a href="" (click)="retSearchRel()"><i class="glyphicon glyphicon-chevron-left">Back</i></a>
+                            <a (click)="retSearchRel()"><i class="glyphicon glyphicon-chevron-left">Back</i></a>
                             <div></div>
                         </div>
                         <div class="col-sm-5">
@@ -453,7 +319,8 @@
     </div>
 
     <!-- shopping car modle -->
-    <div aria-hidden="true" aria-labelledby="myLargeModalLabel" class="modal fade bd-example-modal-lg" role="dialog" tabindex="-1">
+    <div aria-hidden="true" aria-labelledby="myLargeModalLabel" class="modal fade bd-example-modal-lg" role="dialog"
+        tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -482,7 +349,8 @@
                                 <td>xiaomi</td>
                                 <td>56001</td>
                                 <td>
-                                    <img class="iconimg" src="assets/icon/add.png" alt=""><span>4</span><img class="iconimg" src="assets/icon/sami.png" alt=""></td>
+                                    <img class="iconimg" src="assets/icon/add.png" alt=""><span>4</span><img
+                                        class="iconimg" src="assets/icon/sami.png" alt=""></td>
                             </tr>
                             <tr>
                                 <td>2</td>
@@ -490,7 +358,8 @@
                                 <td>xiaomi</td>
                                 <td>56001</td>
                                 <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>2</span><i class=" glyphicon glyphicon-minus "></i></td>
+                                    <i class="glyphicon glyphicon-plus"></i><span>2</span><i
+                                        class=" glyphicon glyphicon-minus "></i></td>
                             </tr>
                             <tr>
                                 <td>3</td>
@@ -498,7 +367,8 @@
                                 <td>xiaomi</td>
                                 <td>56001</td>
                                 <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>8</span><i class=" glyphicon glyphicon-minus "></i></td>
+                                    <i class="glyphicon glyphicon-plus"></i><span>8</span><i
+                                        class=" glyphicon glyphicon-minus "></i></td>
                             </tr>
                             <tr>
                                 <td>4</td>
@@ -506,7 +376,8 @@
                                 <td>xiaomi</td>
                                 <td>56001</td>
                                 <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>9</span><i class=" glyphicon glyphicon-minus "></i>
+                                    <i class="glyphicon glyphicon-plus"></i><span>9</span><i
+                                        class=" glyphicon glyphicon-minus "></i>
                                 </td>
                             </tr>
                             <tr>
@@ -515,7 +386,8 @@
                                 <td>xiaomi</td>
                                 <td>56001</td>
                                 <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>3</span><i class=" glyphicon glyphicon-minus "></i>
+                                    <i class="glyphicon glyphicon-plus"></i><span>3</span><i
+                                        class=" glyphicon glyphicon-minus "></i>
                                 </td>
                             </tr>
                             <tr>
@@ -524,7 +396,8 @@
                                 <td>xiaomi</td>
                                 <td>56001</td>
                                 <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>5</span><i class=" glyphicon glyphicon-minus "></i></td>
+                                    <i class="glyphicon glyphicon-plus"></i><span>5</span><i
+                                        class=" glyphicon glyphicon-minus "></i></td>
                             </tr>
                             <tr>
                                 <td>6</td>
@@ -532,7 +405,8 @@
                                 <td>xiaomi</td>
                                 <td>56001</td>
                                 <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>12</span><i class=" glyphicon glyphicon-minus "></i>
+                                    <i class="glyphicon glyphicon-plus"></i><span>12</span><i
+                                        class=" glyphicon glyphicon-minus "></i>
                                 </td>
                             </tr>
                             <tr>
@@ -541,7 +415,8 @@
                                 <td>xiaomi</td>
                                 <td>56001</td>
                                 <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>23</span><i class=" glyphicon glyphicon-minus "></i>
+                                    <i class="glyphicon glyphicon-plus"></i><span>23</span><i
+                                        class=" glyphicon glyphicon-minus "></i>
                                 </td>
                             </tr>
                             <tr>
@@ -550,7 +425,8 @@
                                 <td>xiaomi</td>
                                 <td>56001</td>
                                 <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>5</span><i class=" glyphicon glyphicon-minus "></i></td>
+                                    <i class="glyphicon glyphicon-plus"></i><span>5</span><i
+                                        class=" glyphicon glyphicon-minus "></i></td>
                             </tr>
                         </tbody>
                     </table>
