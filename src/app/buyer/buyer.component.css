@@ -277,6 +277,7 @@ body {
 .increment{
     border: 1px rgb(197, 194, 194) solid;height: 20px;width: 20px;margin-left:8px;
 }
+
 .decrement{
     border: 1px rgb(197, 194, 194) solid;height: 20px;width: 20px;
 }

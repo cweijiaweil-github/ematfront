@@ -211,7 +211,7 @@ export class BuyerComponent implements OnInit {
       }
     })
   }
-
+  
   checkOut(){
     //update buyer's history
   }
