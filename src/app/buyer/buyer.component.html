@@ -55,11 +55,13 @@
                                     data-target="#" href="javascript:;"><span id="select-title">category &nbsp;</span> <span
                                         class="caret"></span></a>
                                 <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-                                    <li><a href="javascript:;" data-index="1" data-title="一级菜单">一级菜单</a></li>
-                                    <li class="dropdown-submenu">
-                                        <a href="javascript:;" data-index="2" data-title="一级菜单">一级菜单</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a data-index="2-1" href="javascript:;" data-title="二级菜单">二级菜单</a></li>
+                                    <!-- <li *ngFor="let category of categorys;index as i" ><a href="javascript:;" data-index="1" data-title="一级菜单">{{category.category_name}}</a></li> -->
+                                    <li *ngFor="let category of categorys"  class="dropdown-submenu">
+                                        <a href="javascript:;" data-index="2" data-title="firstmenu">{{category.category_name}}</a>
+                                        <ul *ngIf="category.subCategorys.length>0" class="dropdown-menu">
+                                            <li *ngFor="let subCategory of category.subCategorys">
+                                                <a (click)="selSubCategory(category,subCategory)" data-index="2-1" href="javascript:;" data-title="secondmenu">{{subCategory.subCategory_name}}</a>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -67,8 +69,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="row col-xs-12 selres1">{{category}}</div>
+                <div class="row col-xs-12 selres2">{{subCategory}}</div>
                 <div class="row">
-                    <div class="col-xs-4"></div>
                     <div class="col-xs-3 col-sm-11 col-xs-offset-1 dv-margin-tb-x2">
                         <button class="btn btn-primary left-btn" (click)="clearData()">Reset</button>
                     </div>
@@ -80,16 +83,16 @@
             </div>
         </div>
         <div class="right-box col-xs-12 col-sm-10">
-            <div class="shopping-cart " data-target=".bd-example-modal-lg" data-toggle="modal"><img
+            <div (click)="carClick()" class="shopping-cart " data-target=".bd-example-modal-lg" data-toggle="modal"><img
                     src="assets/icon/cart.png" alt="To shopping car" />
             </div>
             <div class="tab-group">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a id="a-buyer" href="#buyItem" data-toggle="tab"><span class="hidden-xs">Buy
+                    <li class="active"><a id="a-buyer" (click)="findAllItems()" href="#buyItem" data-toggle="tab"><span class="hidden-xs">Buy
                                 Item</span><i class="hidden-sm hidden-md hidden-lg glyphicon glyphicon-home"></i></a>
                     </li>
                     <li>
-                        <a id="" href="#purchaseHistory" data-toggle="tab"><span class="hidden-xs">Purchase
+                        <a id="a-purchaseHistory" (click)="findAllHistory()" href="#purchaseHistory" data-toggle="tab"><span class="hidden-xs">Purchase
                                 History</span><i
                                 class="hidden-sm hidden-md hidden-lg glyphicon glyphicon glyphicon-time"></i></a>
                     </li>
@@ -100,9 +103,9 @@
                 <div class="tab-pane active " id="buyItem">
                     <div class="item-search">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="products">
+                            <input type="text" [(ngModel)]="item_name" class="form-control" placeholder="item name">
                         </div>
-                        <button type="submit" class="btn btn-primary">search</button>
+                        <button type="submit" (click)="searchItems()" class="btn btn-primary">search</button>
                     </div>
                     <div class="">
                         <h4><b>Search Results</b></h4>
@@ -213,102 +216,23 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>produce</th>
                                 <th>item_name</th>
                                 <th>price</th>
+                                <th>description</th>
                                 <th>date</th>
                                 <th>view</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>xiaomi</td>
-                                <td>iPhone</td>
-                                <td>56001</td>
-                                <td>20200401</td>
+                            <tr *ngFor="let history of historys;index as i">
+                                <td>{{i+1}}</td>
+                                <td>{{history.item_name}}</td>
+                                <td>{{history.price}}</td>
+                                <td>{{history.description}}</td>
+                                <td>{{history.date_time}}</td>
                                 <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>huawei</td>
-                                <td>compute</td>
-                                <td>59001</td>
-                                <td>20200401</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>ibm</td>
-                                <td>kckdi</td>
-                                <td>59001</td>
-                                <td>20200401</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>ibm</td>
-                                <td>kckdi</td>
-                                <td>59001</td>
-                                <td>20200401</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>ibm</td>
-                                <td>kckdi</td>
-                                <td>59001</td>
-                                <td>20200401</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>ibm</td>
-                                <td>kckdi</td>
-                                <td>59001</td>
-                                <td>20200401</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>ibm</td>
-                                <td>kckdi</td>
-                                <td>59001</td>
-                                <td>20200401</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>ibm</td>
-                                <td>kckdi</td>
-                                <td>59001</td>
-                                <td>20200401</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>ibm</td>
-                                <td>kckdi</td>
-                                <td>59001</td>
-                                <td>20200401</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
+                                    <a class="" (click)="viewDetails()"><img class="iconimg"
+                                            src="assets/icon/view.png" alt=""></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -336,106 +260,32 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th><input type="checkbox" name="" id=""></th>
-                                <th>category</th>
+                                <th><input type="checkbox" (click)="chkallchange()" class="checkall"  name="" id=""></th>
+                                <th>item_name</th>
                                 <th>price</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td>xiaomi</td>
-                                <td>56001</td>
+                            <tr *ngFor ="let carItem of carItems;index as i">
+                                <td>{{i+1}}</td>
+                                <td><input type="checkbox" (click)="chkwchange()" class="w-check" name="" id=""></td>
+                                <td>{{carItem.item_name}}</td>
+                                <td>{{carItem.price * carItem.count}}</td>
                                 <td>
-                                    <img class="iconimg" src="assets/icon/add.png" alt=""><span>4</span><img
-                                        class="iconimg" src="assets/icon/sami.png" alt=""></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td>xiaomi</td>
-                                <td>56001</td>
-                                <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>2</span><i
-                                        class=" glyphicon glyphicon-minus "></i></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td>xiaomi</td>
-                                <td>56001</td>
-                                <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>8</span><i
-                                        class=" glyphicon glyphicon-minus "></i></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td>xiaomi</td>
-                                <td>56001</td>
-                                <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>9</span><i
-                                        class=" glyphicon glyphicon-minus "></i>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td>xiaomi</td>
-                                <td>56001</td>
-                                <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>3</span><i
-                                        class=" glyphicon glyphicon-minus "></i>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td>xiaomi</td>
-                                <td>56001</td>
-                                <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>5</span><i
-                                        class=" glyphicon glyphicon-minus "></i></td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td>xiaomi</td>
-                                <td>56001</td>
-                                <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>12</span><i
-                                        class=" glyphicon glyphicon-minus "></i>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td>xiaomi</td>
-                                <td>56001</td>
-                                <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>23</span><i
-                                        class=" glyphicon glyphicon-minus "></i>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td>xiaomi</td>
-                                <td>56001</td>
-                                <td>
-                                    <i class="glyphicon glyphicon-plus"></i><span>5</span><i
-                                        class=" glyphicon glyphicon-minus "></i></td>
+                                    <img (click)="increment($event,carItem)" class="iconimg increment" src="assets/icon/add.png" alt=""><span class="s-count" >{{carItem.count}}</span><img
+                                     (click)="decrement($event,carItem)" class="iconimg decrement" src="assets/icon/sami.png" alt="">
+                                    </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="modal-footer ">
-                    <button class="btn btn-primary btn-delete" type="button ">
+                <div class="modal-footer">
+                    <div class="leftdiv"><span>total piece:</span><span id="totaPiece">7</span><span>total price:</span><span id="totalPrice">88888</span></div>
+                    <button (click)="delCarItems()" class="btn btn-primary btn-delete" type="button ">
                         Delete
                     </button>
-                    <button class="btn btn-primary btn-checkout" data-dismiss="modal" id="confirm " type="button ">
+                    <button (click)="checkOut()" class="btn btn-primary btn-checkout" data-dismiss="modal" id="confirm " type="button ">
                         Checkout
                     </button>
                 </div>

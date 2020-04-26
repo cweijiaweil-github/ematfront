@@ -186,25 +186,28 @@ body {
 .modal-footer>.btn-delete {
     margin-right: 30px;
 }
+.modal-footer>.leftdiv{
+    position: absolute;
+    left: 30px;
+    font-weight: bold;
 
+}
+.modal-footer>.leftdiv>span:nth-child(2){
+    margin-right: 100px;
+
+}
+.modal-footer>.leftdiv>span{
+    margin-right: 10px;
+}
 .modal-content {
     margin-top: 100px;
 }
-
-
-/* .modal-footer>.btn-checkout {
-    border: 3px red solid;
-    position: absolute;
-    left: 20%;
-} */
-
-
-/* updated delete */
-
-
-/* .item-content {
-    display: none;
-} */
+.selres1,.selres2{
+    height: 20px;
+    margin-top: 5px;
+    color:rgb(177, 177, 184);
+    text-align:center;
+}
 
 .carousel-indicators {
     position: absolute;
@@ -268,7 +271,15 @@ body {
     height: 20px;
     cursor: pointer;
 }
-
+.s-count{
+    display:-moz-inline-box;display:inline-block;width: 60px;text-align: center;
+}
+.increment{
+    border: 1px rgb(197, 194, 194) solid;height: 20px;width: 20px;margin-left:8px;
+}
+.decrement{
+    border: 1px rgb(197, 194, 194) solid;height: 20px;width: 20px;
+}
 
 /* @media (max-width: @screen-xs-max) { */
 
