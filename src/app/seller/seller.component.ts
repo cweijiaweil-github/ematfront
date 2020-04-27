@@ -11,11 +11,16 @@ export class SellerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    $("#myBtn").click(function() {
-      setTimeout(function() {
-          $('#myModal').modal("hide")
-      },3000);
-  })
+    $("#myBtn").click(function () {
+      setTimeout(function () {
+        $('#myModal').modal("hide")
+      }, 3000);
+    })
+
+
+    $('input[id=lefile]').change(function () {
+      $('#photoCover').val($(this).val());
+    });
   }
 
 }
