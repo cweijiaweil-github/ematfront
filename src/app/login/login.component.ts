@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
 
-  constructor(private fb: FormBuilder,public router: Router) { }
+  constructor(private loginService:LoginService,private fb: FormBuilder,public router: Router) { }
 
   
   ngOnInit() {
@@ -32,4 +33,10 @@ export class LoginComponent implements OnInit {
   get password(): AbstractControl {
     return this.loginForm.get('password');
   }
+  loginSubmit(value) {
+    if (this.loginForm.valid) {
+      const jsonParms = JSON.stringify(value);
+      this.loginService.onLogin(jsonParms);
+    }
+   }
 }

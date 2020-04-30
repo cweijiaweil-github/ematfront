@@ -21,7 +21,7 @@ body {
 }
 
 .nav-logo>p {
-    color: #fff813;
+    color: #fff;
     display: block;
     font-size: 40px;
 }
@@ -73,21 +73,21 @@ body {
 }
 
 .context-box {
-    height: 750px;
+    /* height: 750px; */
     margin-top: 10px;
     font-weight: bold;
 }
 
 .left-box {
     height: 100%;
-    border: 2px rgb(62, 197, 186) solid;
+    border: 1px solid #d4d4d4;
 }
 
 .right-box {
     margin-left: -2px;
     height: 100%;
     overflow: hidden;
-    border: 2px rgb(62, 197, 186) solid;
+    border: 1px solid #d4d4d4;
 }
 
 .dv-flex {
@@ -247,7 +247,9 @@ body {
 .btn-car {
     margin-right: 40px;
 }
-
+.w-nav{
+    background-color: #337ab7;
+}
 
 /* @media (max-width: @screen-xs-max) { */
 
@@ -275,9 +277,6 @@ body {
     .left-btn {
         width: 90px;
     }
-    .dropdown>button {
-        width: 60px;
-    }
     .shopping-cart {
         z-index: 11;
         position: fixed;
@@ -304,9 +303,6 @@ body {
     }
     .dv-flex {
         display: block;
-    }
-    .dropdown>button {
-        width: 80%;
     }
     .left-box-ch {
         position: absolute;

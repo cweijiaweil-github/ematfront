@@ -1,36 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>login</title>
-    <!--[if lt IE 9]>
-      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-    <![endif]-->
-    <base href="">
-</head>
-
-<body>
-    <div class="container">
-        <div class="row w-nav">
-            <div class="nav-logo">
-                <p>eMart</p>
-            </div>
-            <div class="nav-sign">
-                <div class="nav-logout">
-                    <a class="label">logout&nbsp;&nbsp;<img class="iconimg" src="assets/icon/user.png" alt=""></a>
-                </div>
+<div class="container">
+    <div class="row w-nav">
+        <div class="nav-logo">
+            <p>eMart</p>
+        </div>
+        <div class="nav-sign">
+            <div class="nav-logout">
+                <a class="label">logout&nbsp;&nbsp;<img class="iconimg" src="assets/icon/user.png" alt=""></a>
             </div>
         </div>
-        <!-- buyer page -->
-        <app-buyer></app-buyer>
-
-        <!-- seller page -->
-        <!-- <app-seller></app-seller> -->
     </div>
-</body>
 
-</html>
+    <div *ngIf="userCheck === 'buyer';else content">
+        <!-- buyer page -->
+        <app-buyer-master></app-buyer-master>
+    </div>
+    <ng-template #content>
+        <div *ngIf="userCheck === 'seller';else other_content">
+            <!-- seller page -->
+            <app-seller-master></app-seller-master>
+        </div>
+    </ng-template>
+    <ng-template #other_content>
+        <app-code404></app-code404>
+    </ng-template>
+</div>

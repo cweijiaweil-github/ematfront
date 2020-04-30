@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-declare var $: any;
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -8,13 +9,12 @@ declare var $: any;
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public userCheck:string;
 
+  constructor(private routeInfo:ActivatedRoute) { }
 
   ngOnInit(): void {
-    // alert($(".tab-group > ul > li:nth-child(1) > a").html())
-    // $(".tab-group > ul > li:nth-child(1) > a").html("<i class='glyphicon glyphicon-home'></i>")
-   
+    this.userCheck = this.routeInfo.snapshot.params["diff"];
 
   }
   
