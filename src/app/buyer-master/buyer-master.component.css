@@ -340,7 +340,9 @@ body {
 .decrement{
     height: 20px;width: 20px;
 }
-
+#dLabel{
+    background-color:#ffffff;width: 130px;
+}
 /* @media (max-width: @screen-xs-max) { */
 
 @media screen and (max-width: 767px) {
