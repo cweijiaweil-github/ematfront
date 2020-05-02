@@ -10,10 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   public userCheck:string;
+  public emartcolor:string;
 
   constructor(private routeInfo:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.emartcolor = "#fff";
     this.userCheck = this.routeInfo.snapshot.params["diff"];
 
   }

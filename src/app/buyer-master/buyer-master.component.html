@@ -219,7 +219,7 @@
                             <td>{{history.item_name}}</td>
                             <td>{{history.price}}</td>
                             <td>{{history.description}}</td>
-                            <td>{{history.date_time}}</td>
+                            <td>{{history.date_time | date:'yyyy-MM-dd'}}</td>
                             <td>
                                 <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png"
                                         alt=""></a>
