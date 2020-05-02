@@ -1,5 +1,5 @@
 <div class="w-seller">
-    <form [formGroup]="signupForm" novalidate id="sellerForm">
+    <form #myForm="ngForm" [formGroup]="signupForm" novalidate (ngSubmit)="siginSubmit(myForm.value)">
         <!-- username -->
         <div class="form-group">
             <label for="username">username</label>

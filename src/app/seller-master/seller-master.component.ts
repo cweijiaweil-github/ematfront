@@ -12,4 +12,23 @@ export class SellerMasterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addItem(value:any){
+
+  }
+
+  addCategory(value:any){
+
+  }
+
+  addSubcategory(value:any){
+
+  }
+
+  veiwItem(value:any){
+
+  }
+
+  reports(value:any){
+
+  }
 }

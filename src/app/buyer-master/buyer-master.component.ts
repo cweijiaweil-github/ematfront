@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-buyer-master',
@@ -24,7 +26,7 @@ export class BuyerMasterComponent implements OnInit {
   count:number;
 
 
-  constructor() { }
+  constructor(private fb: FormBuilder,public router: Router) { }
 
   ngOnInit(): void {
     this.findAllCategorys();
@@ -33,6 +35,7 @@ export class BuyerMasterComponent implements OnInit {
   }
 
   findAllItems() {
+    // The following data is used for testing
     this.items = [
       {
         item_name: "Tanmay",
@@ -157,7 +160,10 @@ export class BuyerMasterComponent implements OnInit {
       }
     ];
   }
-  searchItems() {
+  searchItems(value:any) {
+    // param this.item_name
+  }
+  fillerItem(value:any) {
     // param this.item_name
   }
   selSubCategory(category: any, subCategory: any) {

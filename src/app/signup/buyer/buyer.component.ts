@@ -14,12 +14,6 @@ export class BuyerComponent implements OnInit {
 
   constructor(private signupService:SignupService,private fber: FormBuilder, public router: Router) { }
 
-  person = {
-    name: "hi",
-    color: "red"
-  };
-  abc = "dssdwewe";
-
   ngOnInit(): void {
 
     $(function () {

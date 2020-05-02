@@ -19,6 +19,7 @@ const routes: Routes = [
   {path:"code200Page/:param",component:Code200Component},
   // {path:"home/:diff",component:HomeComponent,canActivate: [LoginGuard]},
   {path:"home/:diff",component:HomeComponent},
+  // diff=== buyer or seller 
   {path:"**",component:Code404Component},
 ];
 

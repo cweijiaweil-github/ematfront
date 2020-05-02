@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   get password(): AbstractControl {
     return this.loginForm.get('password');
   }
-  loginSubmit(value) {
+  loginSubmit(value:any) {
     if (this.loginForm.valid) {
       const jsonParms = JSON.stringify(value);
       this.loginService.onLogin(jsonParms);

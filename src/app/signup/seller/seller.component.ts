@@ -15,11 +15,6 @@ export class SellerComponent implements OnInit {
 
   constructor(private signupService:SignupService,private fber: FormBuilder, public router: Router) { }
 
-  person = {
-    name: "hi",
-    color: "red"
-  };
-  abc = "dssdwewe";
 
   ngOnInit(): void {
 
@@ -60,7 +55,7 @@ export class SellerComponent implements OnInit {
     return this.signupForm.get('rePassword');
   }
 
-  signupSellerSubmit(value) {
+  siginSubmit(value) {
     if (this.signupForm.valid) {
       const jsonParms = JSON.stringify(value);
       this.signupService.onSignupSeller(jsonParms);

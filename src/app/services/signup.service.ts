@@ -14,7 +14,7 @@ export class SignupService {
     const httpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     };
-    this.http.post("/api/signup/buyer",user,httpOptions).subscribe( val => {
+    this.http.post("/api/user/signup/buyer",user,httpOptions).subscribe( val => {
       this.router.navigateByUrl("code200Page/signup");
     },
     error => {
@@ -26,7 +26,7 @@ export class SignupService {
     const httpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     };
-    this.http.post("/api/signup/seller",user,httpOptions).subscribe( val => {
+    this.http.post("/api/user/signup/seller",user,httpOptions).subscribe( val => {
       this.router.navigateByUrl("code200Page/signup");
     },
     error => {
