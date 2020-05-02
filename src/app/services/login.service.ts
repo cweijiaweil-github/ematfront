@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import { Injectable } from "@angular/core";
+import {Router, ActivatedRoute} from "@angular/router";
 import {HttpClient,HttpHeaders} from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class LoginService {
   
@@ -13,24 +13,17 @@ export class LoginService {
 
   onLogin(user:any) {
     const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+      headers: new HttpHeaders({ "Content-Type": "application/json" })
     };
-    this.http.post('/api/itee',{id:'5'},httpOptions).subscribe(response => {
-      console.log(response);
-    });
-              
-        // this.http.get('/api/item/2').subscribe(res => this.logSuss(res) )
-
+    this.http.post("/api/login",{id:"4"},httpOptions).subscribe( val => {
+      // console.log("post请求成功", val);
+      this.router.navigateByUrl("home/"+val["user_type"]);
+    },
+    error => {
+      // console.log("post请求失败", error);
+      this.router.navigateByUrl("errPage");
+    }
+    );
   }
-
-  logSuss(data) {
-    alert("success:"+data.json)
-    console.log(data.json);
-    this.router.navigateByUrl('home');
-  }
-  logError(err: any) {
-    alert("error")
-    console.log(err);
-}
   
 }

@@ -14,9 +14,10 @@ import { SellerComponent } from './signup/seller/seller.component';
 import { AdminComponent } from './admin/admin.component';
 import { BuyerMasterComponent } from './buyer-master/buyer-master.component';
 import { SellerMasterComponent } from './seller-master/seller-master.component';
-import { Code404Component } from './code404/code404.component';
+import { Code404Component } from './common/code404/code404.component';
 import { LoginService } from './services/login.service';
 import { SuccPageComponent } from './signup/succPage/succ-page/succ-page.component';
+import { Code505Component } from './common/code505/code505.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SuccPageComponent } from './signup/succPage/succ-page/succ-page.compone
     BuyerMasterComponent,
     SellerMasterComponent,
     Code404Component,
-    SuccPageComponent
+    SuccPageComponent,
+    Code505Component
   ],
   imports: [
     BrowserModule,
