@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import {Router, ActivatedRoute} from '@angular/router';
-import { Http  , ResponseOptions , Headers  , URLSearchParams } from '@angular/http';
-import { map } from 'rxjs/operators';
+import {HttpClient,HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -10,24 +8,28 @@ import { map } from 'rxjs/operators';
 export class LoginService {
   
   private headers: Headers;
-  constructor(private http: Http,public router: Router) { }
+
+  constructor(private http: HttpClient,public router: Router) { }
 
   onLogin(user:any) {
-        this.headers = new Headers();
-        this.headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        this.http.post('/user/login', user, {
-                headers: this.headers
-            }).pipe(map(
-                data => this.logSuss(data),
-                err => this.logError(err)
-            ));
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    this.http.post('/api/itee',{id:'5'},httpOptions).subscribe(response => {
+      console.log(response);
+    });
+              
+        // this.http.get('/api/item/2').subscribe(res => this.logSuss(res) )
+
   }
 
   logSuss(data) {
-     console.log(data.json);
-     this.router.navigateByUrl('home');
-}
+    alert("success:"+data.json)
+    console.log(data.json);
+    this.router.navigateByUrl('home');
+  }
   logError(err: any) {
+    alert("error")
     console.log(err);
 }
   
