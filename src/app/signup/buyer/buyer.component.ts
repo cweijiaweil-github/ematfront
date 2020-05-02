@@ -59,7 +59,7 @@ export class BuyerComponent implements OnInit {
     return this.signupForm.get('rePassword');
   }
 
-  signupBuyerSubmit(value) {
+  siginSubmit(value) {
     if (this.signupForm.valid) {
       const jsonParms = JSON.stringify(value);
       this.signupService.onSignupBuyer(jsonParms);

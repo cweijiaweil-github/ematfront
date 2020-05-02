@@ -18,6 +18,7 @@ import { Code404Component } from './common/code404/code404.component';
 import { LoginService } from './services/login.service';
 import { SuccPageComponent } from './signup/succPage/succ-page/succ-page.component';
 import { Code505Component } from './common/code505/code505.component';
+import { Code200Component } from './common/code200/code200.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { Code505Component } from './common/code505/code505.component';
     SellerMasterComponent,
     Code404Component,
     SuccPageComponent,
-    Code505Component
+    Code505Component,
+    Code200Component
   ],
   imports: [
     BrowserModule,

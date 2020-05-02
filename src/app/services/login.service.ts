@@ -15,7 +15,7 @@ export class LoginService {
     const httpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     };
-    this.http.post("/api/login",{id:"4"},httpOptions).subscribe( val => {
+    this.http.post("/api/login",user,httpOptions).subscribe( val => {
       // console.log("post请求成功", val);
       this.router.navigateByUrl("home/"+val["user_type"]);
     },
