@@ -25,12 +25,14 @@
                         ],
                         "styles": [
                             "src/styles.css",
-                            "./node_modules/_bootstrap@3.4.1@bootstrap/dist/css/bootstrap.css"
+                            "./node_modules/bootstrap/dist/css/bootstrap.css"
                         ],
                         "scripts": [
-                            "./node_modules/_jquery@3.5.0@jquery/dist/jquery.min.js",
-                            "./node_modules/_bootstrap@3.4.1@bootstrap/dist/js/bootstrap.js",
-                            "./node_modules/_bootstrap@3.4.1@bootstrap/js/tab.js"
+                            "./node_modules/jquery/dist/jquery.min.js",
+                            "./node_modules/bootstrap/dist/js/bootstrap.js",
+                            "./node_modules/bootstrap/js/tab.js"
+
+
                         ]
                     },
                     "configurations": {

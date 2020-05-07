@@ -13,8 +13,11 @@ import { LoginService } from '../services/login.service';
 export class LoginComponent implements OnInit {
  
   loginForm: FormGroup;
+  private info:string;
 
-  constructor(private loginService:LoginService,private fb: FormBuilder,public router: Router) { }
+  constructor(private loginService:LoginService,private fb: FormBuilder,public router: Router) { 
+    this.info = this.loginService.getInfo();
+  }
   
   ngOnInit() {
 
