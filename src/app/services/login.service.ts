@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, SystemJsNgModuleLoader } from "@angular/core";
 import {Router, ActivatedRoute} from "@angular/router";
 import {HttpClient,HttpHeaders} from "@angular/common/http";
 
@@ -18,12 +18,11 @@ export class LoginService {
     const httpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     };
-    this.http.post("/api/user/login",user,httpOptions).subscribe( val => {
-      // console.log("post请求成功", val);
-      this.router.navigateByUrl("home/"+val["user_type"]);
+    
+    this.http.post("/apiuser/user/login",user,httpOptions).subscribe( val => {
+      this.router.navigateByUrl(""+val["key"]);
     },
     error => {
-      // console.log("post请求失败", error);
       this.router.navigateByUrl("errPage");
     }
     );

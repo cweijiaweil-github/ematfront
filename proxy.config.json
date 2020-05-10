@@ -1,11 +1,29 @@
   {
-    "/api": {
+    "/apiuser": {
+      "target": "http://localhost:8083",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/apiuser": ""
+      }
+    },
+    "/apibuyer": {
+      "target": "http://localhost:8082",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/apibuyer": ""
+      }
+    },
+    "/apiseller": {
       "target": "http://localhost:8081",
       "secure": false,
       "logLevel": "debug",
       "changeOrigin": true,
       "pathRewrite": {
-        "^/api": ""
+        "^/apiseller": ""
       }
     }
   }
