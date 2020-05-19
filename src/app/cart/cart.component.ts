@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-car',
-  templateUrl: './car.component.html',
-  styleUrls: ['./car.component.css']
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css']
 })
-export class CarComponent implements OnInit {
+export class CartComponent implements OnInit {
 
   
-  carItems: any[];
+  cartItems: any[];
   sumMoney: number = 0;
   sumPiece: number = 0;
   constructor() { }
@@ -20,7 +20,7 @@ export class CarComponent implements OnInit {
   
   findAllCar(){
     this.sumMoney = 0;
-    this.carItems = [
+    this.cartItems = [
       {
         id: 8000,
         item_name: "poone",
@@ -111,25 +111,25 @@ export class CarComponent implements OnInit {
     //update buyer's history
   }
   
-  increment($event:any, carIte:any) {
-    carIte.count = Number($($event.target).siblings(".s-count").text()) + 1;
-    $($event.target).siblings(".s-count").text(carIte.count);
+  increment($event:any, cartIte:any) {
+    cartIte.count = Number($($event.target).siblings(".s-count").text()) + 1;
+    $($event.target).siblings(".s-count").text(cartIte.count);
     this.getSum();
   }
-  decrement($event:any, carIte:any) {
-    carIte.count = Number($($event.target).siblings(".s-count").text()) - 1;
-    if (carIte.count < 1) {
-      carIte.count = 1;
+  decrement($event:any, cartIte:any) {
+    cartIte.count = Number($($event.target).siblings(".s-count").text()) - 1;
+    if (cartIte.count < 1) {
+      cartIte.count = 1;
       $($event.target).siblings(".s-count").text(1)
     } else {
-      $($event.target).siblings(".s-count").text(carIte.count)
+      $($event.target).siblings(".s-count").text(cartIte.count)
     }
     this.getSum();
   }
   getSum() {
     this.sumMoney = 0;
     this.sumPiece = 0;
-    this.carItems.forEach((item, index, array) => {
+    this.cartItems.forEach((item, index, array) => {
       this.sumMoney = (array[index].price * array[index].count) + this.sumMoney;
       this.sumPiece = array[index].count + this.sumPiece;
     })

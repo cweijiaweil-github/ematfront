@@ -18,7 +18,7 @@ import { LoginService } from './services/login.service';
 import { SuccPageComponent } from './signup/succPage/succ-page/succ-page.component';
 import { Code505Component } from './common/code505/code505.component';
 import { Code200Component } from './common/code200/code200.component';
-import { CarComponent } from './car/car.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { CarComponent } from './car/car.component';
     SuccPageComponent,
     Code505Component,
     Code200Component,
-    CarComponent
+    CartComponent
   ],
   imports: [
     BrowserModule,
