@@ -5,7 +5,7 @@
             <label for="username">username</label>
             <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                <input type="type" class="form-control" id="username" placeholder="username" formControlName='username' required>
+                <input type="text" class="form-control" id="username" placeholder="username" formControlName='username' required>
             </div>
             <div class="valia">
                 <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert-danger valia">
@@ -67,15 +67,15 @@
             <label for="company">company name</label>
             <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
-                <input type="text" class="form-control" id="company" placeholder="company name" formControlName='company'>
+                <input type="text" class="form-control" id="company_name" placeholder="company name" formControlName='company_name'>
             </div>
         </div>
-        <!-- GSTIN -->
+        <!-- gstin -->
         <div class="form-group">
-            <label for="GSTIN">GSTIN</label>
+            <label for="gstin">gstin</label>
             <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-pawn"></span></span>
-                <input type="text" class="form-control" id="GSTIN" placeholder="GSTIN" formControlName='GSTIN'>
+                <input type="text" class="form-control" id="gstin" placeholder="gstin" formControlName='gstin'>
             </div>
         </div>
         <!-- brief about company -->
@@ -83,7 +83,7 @@
             <label for="brief">brief about company</label>
             <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-duplicate"></span></span>
-                <input type="text" class="form-control" id="brief" placeholder="brief about company" formControlName='brief'>
+                <input type="text" class="form-control" id="about_company" placeholder="brief about company" formControlName='about_company'>
             </div>
         </div>
         <!-- postal address -->

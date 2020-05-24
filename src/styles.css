@@ -4,3 +4,6 @@ input:hover{
 .w-asterisk{
     color: rgba(197, 31, 31, 0.651);
 }
+.nodisplay{
+    display: none;
+}

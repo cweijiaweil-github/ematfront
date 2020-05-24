@@ -7,6 +7,7 @@ import {HttpClient,HttpHeaders} from "@angular/common/http";
 })
 export class LoginService {
   
+  retVal =[];
   private headers: Headers;
   constructor(private http: HttpClient,public router: Router) { }
 
@@ -20,7 +21,9 @@ export class LoginService {
     };
     
     this.http.post("/apiuser/user/login",user,httpOptions).subscribe( val => {
-      this.router.navigateByUrl(""+val["key"]);
+      this.retVal= val["key"].split(",");
+      window.sessionStorage.setItem(this.retVal[0],this.retVal[1]);
+      this.router.navigateByUrl(""+this.retVal[2]);
     },
     error => {
       this.router.navigateByUrl("errPage");

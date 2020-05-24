@@ -27,29 +27,47 @@
                     <div class="item-content">
                         <div class="row">
                             <label class="col-xs-2">Select Category</label>
-                            <select name="" id="" class="col-xs-1">
-                                <option value="">iphone</option>
-                                <option value="">appliances</option>
+                            <select name="" id="" class="col-xs-1" (change)="getCategoryId($event.target.value);">
+                                <option value="">please select!</option>
+                                <option *ngFor="let list of categoryList index as i" value="{{list.categoryId}}">
+                                    {{list.category_name}}</option>
                             </select>
+                        </div>
+                        <div class="row nodisplay">
+                            <label class="col-xs-2">categoryId</label>
+                            <input type="text" name="categoryId" [(ngModel)]="categoryId" class="col-xs-1">
                         </div>
                         <div class="row">
                             <label class="col-xs-2">Select Subcategory</label>
-                            <select name="" id="" class="col-xs-1">
-                                <option value="">xiaomi</option>
-                                <option value="">huawei</option>
+                            <select name="" id="" class="col-xs-1" (change)="getSubCategoryId($event.target.value);">
+                                <option value="">please select!</option>
+                                <option *ngFor="let list of subCategoryList index as i" value="{{list.subCategoryId}}">
+                                    {{list.subCategory_name}}</option>
                             </select>
+                        </div>
+                        <div class="row nodisplay">
+                            <label class="col-xs-2">SubCategoryId</label>
+                            <input type="text" name="subcategoryId" [(ngModel)]="subcategoryId" class="col-xs-1">
+                        </div>
+                        <div class="row nodisplay">
+                            <label class="col-xs-2">sellerId</label>
+                            <input type="text" name='sellerId' [(ngModel)]="sellerId" class="col-xs-1">
+                        </div>
+                        <div class="row">
+                            <label class="col-xs-2">Item id</label>
+                            <input type="text" name="itemId" ngModel class="col-xs-1">
                         </div>
                         <div class="row">
                             <label class="col-xs-2">Item name</label>
-                            <input type="text" class="col-xs-1">
+                            <input type="text" name="item_name" ngModel class="col-xs-1">
                         </div>
                         <div class="row">
                             <label class="col-xs-2">Price</label>
-                            <input type="text" class="col-xs-1">
+                            <input type="text" name="price" ngModel class="col-xs-1">
                         </div>
                         <div class="row">
                             <label class="col-xs-2">Stock No.</label>
-                            <input type="text" class="col-xs-1">
+                            <input type="text" name="stock_number" ngModel class="col-xs-1">
                         </div>
                         <div class="row">
                             <button class="btn btn-primary">
@@ -62,13 +80,21 @@
             <div class="tab-pane" id="addCategory">
                 <form #addCategoryForm="ngForm" (ngSubmit)="addCategory(addCategoryForm.value)">
                     <div class="item-content">
+                        <div class="row nodisplay">
+                            <label class="col-xs-2">sellerId</label>
+                            <input type="text" name='sellerId' [(ngModel)]="sellerId" class="col-xs-1">
+                        </div>
+                        <div class="row">
+                            <label class="col-xs-2">category_id</label>
+                            <input type="text" name='categoryId' ngModel class="col-xs-1">
+                        </div>
                         <div class="row">
                             <label class="col-xs-2">category_name</label>
-                            <input type="text" class="col-xs-1">
+                            <input type="text" name='category_name' ngModel class="col-xs-1">
                         </div>
                         <div class="row">
                             <label class="col-xs-2">brief_details</label>
-                            <input type="text" class="col-xs-1">
+                            <input type="text" name='brief_details' ngModel class="col-xs-1">
                         </div>
                         <div class="row">
                             <button class="btn btn-primary w-btn-save">
@@ -83,54 +109,54 @@
                     <div class="item-content">
                         <div class="row">
                             <label class="col-xs-2">Select Category</label>
-                            <select name="" id="" class="col-xs-1">
-                                <option value="">iphone</option>
-                                <option value="">appliances</option>
+                            <select name="" id="" class="col-xs-1" (change)="getCategoryId($event.target.value);">
+                                <option value="">please select!</option>
+                                <option *ngFor="let list of categoryList index as i" value="{{list.categoryId}}">
+                                    {{list.category_name}}</option>
                             </select>
                         </div>
+                        <div class="row nodisplay">
+                            <label class="col-xs-2">categoryId</label>
+                            <input type="text" name="categoryId" [(ngModel)]="categoryId" class="col-xs-1">
+                        </div>
+                        <div class="row nodisplay">
+                            <label class="col-xs-2">sellerId</label>
+                            <input type="text" name='sellerId' [(ngModel)]="sellerId" class="col-xs-1">
+                        </div>
                         <div class="row">
-                            <label class="col-xs-2">subcategory_name</label>
-                            <input type="text" class="col-xs-1">
+                            <label class="col-xs-2">subCategoryId</label>
+                            <input type="text" name="subCategoryId" ngModel class="col-xs-1">
+                        </div>
+                        <div class="row">
+                            <label class="col-xs-2">subCategory_name</label>
+                            <input type="text" name="subCategory_name" ngModel class="col-xs-1">
                         </div>
                         <div class="row">
                             <label class="col-xs-2">brief_details</label>
-                            <input type="text" class="col-xs-1">
+                            <input type="text" name="brief_details" ngModel class="col-xs-1">
                         </div>
                         <div class="row">
                             <label class="col-xs-2">N/W Type</label>
-                            <select name="" id="" class="col-xs-1">
-                                <option value="">4G</option>
-                                <option value="">8G</option>
-                            </select>
+                            <input type="text" name="nw_type" ngModel class="col-xs-1">
                         </div>
                         <div class="row">
                             <label class="col-xs-2">
                                 Memory Storage
                             </label>
-                            <select name="" id="" class="col-xs-1">
-                                <option value="">64G</option>
-                                <option value="">128G</option>
-                            </select>
-                        </div>
-                        <div class="row">
-                            <label class="col-xs-2">Screen Resolution</label>
-                            <input type="text" class="col-xs-1">
+                            <input type="text" name="memory_Storage" ngModel class="col-xs-1">
                         </div>
                         <div class="row">
                             <label class="col-xs-2">Network Type</label>
-                            <input type="text" class="col-xs-1" value="">
-                        </div>
-                        <div class="row">
-                            <label class="col-xs-2">Memory Storage</label>
-                            <input type="text" class="col-xs-1" value="">
+                            <input type="text" name="nettwork_type" ngModel class="col-xs-1"
+                                value="">
                         </div>
                         <div class="row">
                             <label class="col-xs-2">Cameras</label>
-                            <input type="text" class="col-xs-1" value="">
+                            <input type="text" name="cameras" ngModel class="col-xs-1" value="">
                         </div>
                         <div class="row">
                             <label class="col-xs-2">OS Version</label>
-                            <input type="text" class="col-xs-1" value="">
+                            <input type="text" name="os_version" ngModel class="col-xs-1" value="">
                         </div>
                         <div class="row">
                             <label class="col-xs-2">upload</label>

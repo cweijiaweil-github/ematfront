@@ -20,15 +20,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let carttItem of carttItems;index as i">
+                    <tr *ngFor="let cartItem of cartItems;index as i">
                         <td>{{i+1}}</td>
                         <td><input type="checkbox" (click)="chkwchange()" class="w-check" name="" id=""></td>
-                        <td>{{carttItem.item_name}}</td>
-                        <td>{{carttItem.price * carttItem.count}}</td>
+                        <td>{{cartItem.item_name}}</td>
+                        <td>{{cartItem.price * cartItem.count}}</td>
                         <td>
-                            <img (click)="increment($event,carttItem)" class="iconimg increment"
-                                src="assets/icon/add.png" alt=""><span class="s-count">{{carttItem.count}}</span><img
-                                (click)="decrement($event,carttItem)" class="iconimg decrement"
+                            <img (click)="increment($event,cartItem)" class="iconimg increment"
+                                src="assets/icon/add.png" alt=""><span class="s-count">{{cartItem.count}}</span><img
+                                (click)="decrement($event,cartItem)" class="iconimg decrement"
                                 src="assets/icon/sami.png" alt="">
                         </td>
                     </tr>

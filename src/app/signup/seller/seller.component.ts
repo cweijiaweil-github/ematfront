@@ -15,6 +15,7 @@ export class SellerComponent implements OnInit {
 
   constructor(private signupService:SignupService,private fber: FormBuilder, public router: Router) { }
 
+  // public company:string;
 
   ngOnInit(): void {
 
@@ -35,7 +36,12 @@ export class SellerComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         mobile: ['', [Validators.required]],
         password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(26)]],
-        rePassword: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(26)]]
+        rePassword: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(26)]],
+        company_name: [''],
+        gstin: [''],
+        about_company: [''],
+        postal: [''],
+        website: ['']
       });
   }
   get username(): AbstractControl {
@@ -54,6 +60,10 @@ export class SellerComponent implements OnInit {
   get rePassword(): AbstractControl {
     return this.signupForm.get('rePassword');
   }
+  
+  // get company(): AbstractControl {
+  //   return this.signupForm.get('company');
+  // }
 
   siginSubmit(value) {
     if (this.signupForm.valid) {
