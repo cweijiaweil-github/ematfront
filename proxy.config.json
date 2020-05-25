@@ -1,6 +1,6 @@
   {
     "/apiuser": {
-      "target": "http://localhost:8083",
+      "target": "http://localhost:8090/user-service",
       "secure": false,
       "logLevel": "debug",
       "changeOrigin": true,
@@ -9,7 +9,7 @@
       }
     },
     "/apibuyer": {
-      "target": "http://localhost:8082",
+      "target": "http://localhost:8090/buyer-service",
       "secure": false,
       "logLevel": "debug",
       "changeOrigin": true,
@@ -18,7 +18,7 @@
       }
     },
     "/apiseller": {
-      "target": "http://localhost:8081",
+      "target": "http://localhost:8090/seller-service",
       "secure": false,
       "logLevel": "debug",
       "changeOrigin": true,

@@ -15,6 +15,7 @@ export class SellerMasterComponent implements OnInit {
   subcategoryId: string;
   categoryList: any;
   subCategoryList: any;
+  itemList: any;
   constructor(private sellerService: SellerService, private http: HttpClient, public router: Router) { }
 
   ngOnInit(): void {
@@ -50,11 +51,11 @@ export class SellerMasterComponent implements OnInit {
   }
   getCategoryId(value) {
     this.categoryId = value;
-    this.getFindAllSubCategory(this.sellerId,this.categoryId);
+    this.getFindAllSubCategory(this.sellerId, this.categoryId);
   }
-  
-  getFindAllSubCategory(sellerId: string,categoryId: string) {
-    this.http.get("/apiseller/subCategory/findsubcategorys" + "/" + sellerId+ "/" + categoryId).subscribe(val => {
+
+  getFindAllSubCategory(sellerId: string, categoryId: string) {
+    this.http.get("/apiseller/subCategory/findsubcategorys" + "/" + sellerId + "/" + categoryId).subscribe(val => {
       const arr = [];
       const subCategoryList = val["key"];
       for (var i in subCategoryList) {
@@ -79,8 +80,22 @@ export class SellerMasterComponent implements OnInit {
     const jsonParms = JSON.stringify(value);
     this.sellerService.addItem(jsonParms);
   }
-  veiwItem(value: any) {
-
+  veiwItem() {
+    this.http.get("/apiseller/item/listItems" + "/" + this.sellerId).subscribe(val => {
+      const arr = [];
+      const itemList = val["key"];
+      for (var i in itemList) {
+        for (var j in itemList[i]) {
+          alert(itemList[i][j]);
+          // arr.push(itemList[i]);
+        }
+      }
+      // this.itemList = arr;
+    },
+      error => {
+        this.router.navigateByUrl("errPage");
+      }
+    );
   }
 
   reports(value: any) {

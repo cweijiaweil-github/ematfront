@@ -13,7 +13,7 @@
                             class="hidden-sm hidden-md hidden-lg glyphicon glyphicon-home"></i></a>
                 </li>
                 <li>
-                    <a id="c-seller" href="#veiwItem" data-toggle="tab"><label class="hidden-xs">veiw
+                    <a id="c-seller" href="#veiwItem" (click)="veiwItem()" data-toggle="tab"><label class="hidden-xs">veiw
                             Item</label><i
                             class="hidden-sm hidden-md hidden-lg glyphicon glyphicon glyphicon-time"></i></a>
                 </li>
@@ -177,7 +177,6 @@
                 </form>
             </div>
             <div class="tab-pane " id="veiwItem">
-                <form #veiwItemForm="ngForm" (ngSubmit)="veiwItem(veiwItemForm.value)">
                     <table class="table table-bordered table-striped table-hover ">
                         <thead>
                             <tr>
@@ -294,7 +293,6 @@
                             </tr>
                         </tbody>
                     </table>
-                </form>
             </div>
             <div class="tab-pane " id="reports">
                 <form #reportsForm="ngForm" (ngSubmit)="reports(reportsForm.value)">
