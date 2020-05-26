@@ -182,114 +182,16 @@
                             <tr>
                                 <th>#</th>
                                 <th>item_name</th>
-                                <th>category</th>
-                                <th>view</th>
+                                <th>category_name</th>
+                                <th>subCategory_name</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Tanmay</td>
-                                <td>iphone</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Sachin</td>
-                                <td>iphone</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Uma</td>
-                                <td>computer</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Uma</td>
-                                <td>sd</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Uma</td>
-                                <td>fd</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Uma</td>
-                                <td>fg</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Uma</td>
-                                <td>rt</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>Uma</td>
-                                <td>dfg</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>Uma</td>
-                                <td>dfhg</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>Uma</td>
-                                <td>fgh</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>11</td>
-                                <td>Uma</td>
-                                <td>fgh</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>12</td>
-                                <td>Uma</td>
-                                <td>fgjh</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>13</td>
-                                <td>Uma</td>
-                                <td>10212</td>
-                                <td>
-                                    <a class=""><img class="iconimg" src="assets/icon/view.png" alt=""></a>
-                                </td>
+                            <tr *ngFor="let list of itemList index as i">
+                                <td>{{i+1}}</td>
+                                <td>{{list.item_name}}</td>
+                                <td>{{list.category_name}}</td>
+                                <td>{{list.sub_category_name}}</td>
                             </tr>
                         </tbody>
                     </table>

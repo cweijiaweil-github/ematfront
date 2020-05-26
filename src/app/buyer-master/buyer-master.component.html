@@ -89,10 +89,10 @@
 
         <div class="tab-content">
             <div class="tab-pane active " id="buyItem">
-                <form #searchForm="ngForm" (ngSubmit)="searchItems(searchForm.value)">
+                <form #searchForm="ngForm" (ngSubmit)="findItemsByName(searchForm.value)">
                 <div class="item-search">
                         <div class="form-group">
-                            <input name="item_name" type="text" [(ngModel)]="item_name" class="form-control" placeholder="item name">
+                            <input name="item_name" ngModel type="text" class="form-control" placeholder="item name">
                         </div>
                         <button type="submit" class="btn btn-primary">search</button>
                     </div>
@@ -109,19 +109,25 @@
                                 <th>item_name</th>
                                 <th>price</th>
                                 <th>description</th>
+                                <th>category</th>
+                                <th>subCategory</th>
                                 <th>seller</th>
                                 <th>view</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of items;index as i">
+                            <tr *ngFor="let item of itemList;index as i">
                                 <td>{{i+1}}</td>
                                 <td>{{item.item_name}}</td>
                                 <td>{{item.price}}</td>
                                 <td>{{item.description}}</td>
-                                <td>{{item.seller}}</td>
+                                <td>{{item.category_name}}</td>
+                                <td>{{item.sub_category_name}}</td>
+                                <td>{{item.seller_id}}</td>
                                 <td>
-                                    <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png"
+                                    <input class="nodisplay" #inputSubCategoryId type="text" value="{{item.sub_category_id}}">
+                                    <a class="" (click)="viewDetails(inputSubCategoryId.value)" >
+                                        <img class="iconimg" src="assets/icon/view.png"
                                             alt=""></a>
                                 </td>
                             </tr>
@@ -163,37 +169,34 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-sm-7"  *ngFor="let item of subCategoryList">
                         <div class="">
-                            <span></span><span>Xiaomi/小米手机Redmi note8 pro红米note8pro全网通官方旗舰店</span>
+                           <h1><span>{{item.price}}</span><span>'s information</span></h1> 
                         </div>
-                        <div class="res-centent ">
+                        <div class="res-centent " >
                             <div>
-                                <span>Price</span><span>¥1239.00</span>
+                                <span>Price</span><span>{{item.price}}</span>
                             </div>
                             <div>
-                                <span>Seller</span><span>weijiawei</span>
+                                <span>Seller</span><span>{{item.seller_id}}</span>
                             </div>
                             <div>
-                                <span>Screen Resolution</span><span>1200 * 768</span>
+                                <span>Network Type</span><span>{{item.nettwork_type}}</span>
                             </div>
                             <div>
-                                <span>Network Type</span><span>5G</span>
-                            </div>
-                            <!-- <div>
-                                    <span>Battery Capacity</span><span>24 hour</span>
-                                </div> -->
-                            <div>
-                                <span>Memory Storage</span><span>8+128GB</span>
+                                <span>Memory Storage</span><span>{{item.memory_storage}}</span>
                             </div>
                             <div>
-                                <span>Cameras</span><span>front(500M)</span>
+                                <span>Cameras</span><span>{{item.cameras}}</span>
                             </div>
                             <div>
-                                <span>OS Version</span><span>Xiaolong 865</span>
+                                <span>OS Version</span><span>{{item.os_version}}</span>
                             </div>
                             <div class="btn-caout">
-                                <button class="btn btn-primary btn-car">Add to Car</button>
+                                <input class="nodisplay" #inputItemId type="text" value="{{item.item_id}}">
+                                <input class="nodisplay" #inputItemName type="text" value="{{item.item_name}}">
+                                <input class="nodisplay" #inputprice type="text" value="{{item.price}}">
+                                <button class="btn btn-primary btn-car" (click)="addToCart(inputItemId.value,inputItemName.value,inputprice.value)">Add to Cart</button>
                                 <button class="btn btn-primary">Check out</button>
                             </div>
                         </div>
@@ -221,7 +224,7 @@
                             <td>{{history.description}}</td>
                             <td>{{history.date_time | date:'yyyy-MM-dd'}}</td>
                             <td>
-                                <a class="" (click)="viewDetails()"><img class="iconimg" src="assets/icon/view.png"
+                                <a class="" (click)="viewDetails('aaaa')"><img class="iconimg" src="assets/icon/view.png"
                                         alt=""></a>
                             </td>
                         </tr>

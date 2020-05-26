@@ -1,6 +1,7 @@
 import { Injectable, SystemJsNgModuleLoader } from "@angular/core";
 import {Router, ActivatedRoute} from "@angular/router";
 import {HttpClient,HttpHeaders} from "@angular/common/http";
+import { PlatformLocation} from '@angular/common';
 
 @Injectable({
   providedIn: "root"

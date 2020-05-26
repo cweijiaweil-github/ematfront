@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {HttpClient,HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BuyerService {
 
-  constructor() { }
+  private headers: Headers;
+  constructor(private http: HttpClient,public router: Router) { }
 
   findItemsByPriceAndFacturer(){
 
@@ -19,8 +22,17 @@ export class BuyerService {
     
   }
 
-  addItemToCar(){
-
+  addToCart(cart:any){
+    const httpOptions = {
+      headers: new HttpHeaders({ "Content-Type": "application/json" })
+    };
+    this.http.post("/apibuyer/cart/addcart",cart,httpOptions).subscribe( val => {
+      // this.router.navigateByUrl("code200Page/signup");
+    },
+    error => {
+      this.router.navigateByUrl("errPage");
+    }
+    );
   }
 
   checkOut(){

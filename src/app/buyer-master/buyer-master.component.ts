@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BuyerService } from '../services/buyer.service';
 
 @Component({
   selector: 'app-buyer-master',
@@ -9,7 +11,12 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/form
 })
 export class BuyerMasterComponent implements OnInit {
 
+  buyerId: string;
+  itemList: any;
   items: any[];
+  subCategoryList: any;
+  checkCartVal: any;
+
   historys: any[];
   categorys: any[];
   startPrice: number;
@@ -20,75 +27,101 @@ export class BuyerMasterComponent implements OnInit {
   subCategory_id: number;
   item_name: string;
   piece: number;
-  count:number;
+  count: number;
 
 
-  constructor(private fb: FormBuilder,public router: Router) { }
+  constructor(private buyerService: BuyerService, private fb: FormBuilder, public router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.findAllCategorys();
-    this.findAllItems();
+    this.buyerId = window.sessionStorage.getItem("buyer");
+  }
 
+  findItemsByName(value: any) {
+    if (value["item_name"] != "") {
+      this.http.get("/apibuyer/order/searchItems" + "/" + value["item_name"]).subscribe(val => {
+        const arr = [];
+        const itemList = val["key"];
+        for (var i in itemList) {
+          //  alert(JSON.stringify(itemList[i]));
+          arr.push(itemList[i]);
+        }
+        this.itemList = arr;
+      },
+        error => {
+          this.router.navigateByUrl("errPage");
+        }
+      );
+    }
+  }
+
+  viewDetails(sub_category_id: string) {
+    $(".item-content").css("display", "none");
+    $(".specifications").css("display", "block");
+    this.http.get("/apibuyer/order/searchSubCategory" + "/" + sub_category_id).subscribe(val => {
+      const arr = [];
+      const itemList = val["key"];
+      //  alert(JSON.stringify(itemList[0]));
+      arr.push(itemList[0]);
+      this.subCategoryList = arr;
+    },
+      error => {
+        this.router.navigateByUrl("errPage");
+      }
+    );
+  }
+
+  findItemsByPriceAndFacturer() {
+    if (this.startPrice != undefined && this.endPrice != undefined) {
+      $("#a-buyer").parent("li").addClass("active");
+      $("#a-purchaseHistory").parent("li").removeClass("active");
+      $("#purchaseHistory").removeClass("active");
+      $("#buyItem").addClass("active");
+      // back_end start
+      //  alert("startPrice="+this.startPrice+";endPrice="+this.endPrice+";category="+this.category+";subCategory="+this.subCategory);
+
+      this.http.get("/apibuyer/order/fillerItems" + "/" + this.startPrice + "/" + this.endPrice).subscribe(val => {
+        const arr = [];
+        const itemList = val["key"];
+        for (var i in itemList) {
+          //  alert(JSON.stringify(itemList[i]));
+          arr.push(itemList[i]);
+        }
+        this.itemList = arr;
+      },
+        error => {
+          this.router.navigateByUrl("errPage");
+        }
+      );
+    }
+  }
+
+  addToCart(item_id: String, item_name: String, price: String) {
+    this.findCartChk(item_id, item_name, price);
+  }
+
+  findCartChk(item_id: String, item_name: String, price: String) {
+    this.http.get("/apibuyer/cart/getcart" + "/" + item_id).subscribe(val => {
+      if (val == null) {
+        const jsoncart = { "itemId": item_id, "item_name": item_name, "price": price, "num_items": "1", "buyerId": this.buyerId }
+        const jsonParms = JSON.stringify(jsoncart);
+        this.buyerService.addToCart(jsonParms);
+      } else {
+        const val1 = JSON.stringify(val);
+        const id = val["id"];
+        const num_item = val["num_items"] + 1;
+        const jsoncart = { "id": id, "itemId": item_id, "item_name": item_name, "price": price, "num_items": num_item, "buyerId": this.buyerId }
+        const jsonParms = JSON.stringify(jsoncart);
+        this.buyerService.addToCart(jsonParms);
+      }
+    },
+      error => {
+        this.router.navigateByUrl("errPage");
+      }
+    );
   }
 
   findAllItems() {
-    // The following data is used for testing
-    this.items = [
-      {
-        item_name: "Tanmay",
-        price: "10210",
-        description: "zhejiushi1001",
-        seller: "bellapa1"
-      },
-      {
-        item_name: "Tanmay2",
-        price: "10212",
-        description: "zhejiushi1002",
-        seller: "bellapa2"
-      },
-      {
-        item_name: "Tanmay3",
-        price: "10211",
-        description: "zhejiushi1003",
-        seller: "bellapa3"
-      },
-      {
-        item_name: "Tanmay3",
-        price: "10211",
-        description: "zhejiushi1003",
-        seller: "bellapa3"
-      },
-      {
-        item_name: "Tanmay3",
-        price: "10211",
-        description: "zhejiushi1003",
-        seller: "bellapa3"
-      },
-      {
-        item_name: "Tanmay3",
-        price: "10211",
-        description: "zhejiushi1003",
-        seller: "bellapa3"
-      },
-      {
-        item_name: "Tanmay3",
-        price: "10211",
-        description: "zhejiushi1003",
-        seller: "bellapa3"
-      },
-      {
-        item_name: "Tanmay3",
-        price: "10211",
-        description: "zhejiushi1003",
-        seller: "bellapa3"
-      },
-      {
-        item_name: "Tanmay3",
-        price: "10211",
-        description: "zhejiushi1003",
-        seller: "bellapa3"
-      }
-    ];
+
   }
   findAllHistory() {
     this.historys = [
@@ -122,45 +155,8 @@ export class BuyerMasterComponent implements OnInit {
       }
     ];
   }
-  findAllCategorys() {
-    this.categorys = [
-      {
-        category_id: "1001",
-        category_name: "ca001",
-        subCategorys: [{
-          subCategory_id: "2a01",
-          subCategory_name: "suba01"
-        }, {
-          subCategory_id: "2a02",
-          subCategory_name: "suba02"
-        }, {
-          subCategory_id: "2a03",
-          subCategory_name: "suba03"
-        }]
 
-      },
-      {
-        category_id: "1002",
-        category_name: "ca002",
-        subCategorys: [{
-          subCategory_id: "2b01",
-          subCategory_name: "subb01"
-        }, {
-          subCategory_id: "2b02",
-          subCategory_name: "subb02"
-        }]
-      },
-      {
-        category_id: "1003",
-        category_name: "ca003",
-        subCategorys: []
-      }
-    ];
-  }
-  searchItems(value:any) {
-    // param this.item_name
-  }
-  fillerItem(value:any) {
+  fillerItem(value: any) {
     // param this.item_name
   }
   selSubCategory(category: any, subCategory: any) {
@@ -169,20 +165,7 @@ export class BuyerMasterComponent implements OnInit {
     this.category = category.category_name;
     this.subCategory = subCategory.subCategory_name;
   }
-  findItemsByPriceAndFacturer() {
-    $("#a-buyer").parent("li").addClass("active");
-    $("#a-purchaseHistory").parent("li").removeClass("active");
-    $("#purchaseHistory").removeClass("active");
-    $("#buyItem").addClass("active");
-    // back_end start
-    //  alert("startPrice="+this.startPrice+";endPrice="+this.endPrice+";category="+this.category+";subCategory="+this.subCategory);
-  }
 
-  viewDetails() {
-    $(".item-content").css("display", "none");
-    $(".specifications").css("display", "block");
-
-  }
   retSearchRel() {
     this.findAllItems();
     $(".specifications").css("display", "none");

@@ -85,12 +85,13 @@ export class SellerMasterComponent implements OnInit {
       const arr = [];
       const itemList = val["key"];
       for (var i in itemList) {
-        for (var j in itemList[i]) {
-          alert(itemList[i][j]);
-          // arr.push(itemList[i]);
-        }
+        // alert(JSON.stringify(itemList[i]));
+        arr.push(itemList[i]);
+        // for (var j in itemList[i]) {
+          // alert(itemList[i][j]);
+        // }
       }
-      // this.itemList = arr;
+      this.itemList = arr;
     },
       error => {
         this.router.navigateByUrl("errPage");
