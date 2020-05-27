@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BuyerService } from '../services/buyer.service';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-buyer-master',
   templateUrl: './buyer-master.component.html',
   styleUrls: ['./buyer-master.component.css']
 })
+
 export class BuyerMasterComponent implements OnInit {
 
   buyerId: string;
@@ -34,8 +36,16 @@ export class BuyerMasterComponent implements OnInit {
 
   ngOnInit(): void {
     this.buyerId = window.sessionStorage.getItem("buyer");
+    this.findAllItems()
   }
+  
+  @ViewChild('cartComponent', { static: false })
+  public cartComponent: CartComponent;
 
+  public findAllCar() {
+    // 调用子组件的方法
+    this.cartComponent.findAllCar(this.buyerId);
+  }
   findItemsByName(value: any) {
     if (value["item_name"] != "") {
       this.http.get("/apibuyer/order/searchItems" + "/" + value["item_name"]).subscribe(val => {
@@ -51,7 +61,27 @@ export class BuyerMasterComponent implements OnInit {
           this.router.navigateByUrl("errPage");
         }
       );
+    }else{
+      this.findAllItems();
     }
+  }
+
+  findAllItems() {
+      this.http.get("/apibuyer/order/searchAllItems").subscribe(val => {
+        const arr = [];
+        const itemList = val["key"];
+        for (var i in itemList) {
+          //  alert(JSON.stringify(itemList[i]));
+          arr.push(itemList[i]);
+        }
+        this.itemList = arr;
+      },
+        error => {
+          // this.router.navigateByUrl("errPage");
+        }
+      );
+    $(".specifications").css("display", "none");
+    $(".item-content").css("display", "block");
   }
 
   viewDetails(sub_category_id: string) {
@@ -120,9 +150,6 @@ export class BuyerMasterComponent implements OnInit {
     );
   }
 
-  findAllItems() {
-
-  }
   findAllHistory() {
     this.historys = [
       {
@@ -168,8 +195,6 @@ export class BuyerMasterComponent implements OnInit {
 
   retSearchRel() {
     this.findAllItems();
-    $(".specifications").css("display", "none");
-    $(".item-content").css("display", "block");
   }
   clearData() {
     $(".left-input").val("");

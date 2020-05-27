@@ -1,9 +1,10 @@
+
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header alert-head">
             <div class="row">
                 <h3 class="modal-title col-xs-12" id="savemodaLabel">
-                    Shopping Car
+                    Shopping Cart
                 </h3>
                 <img class="iconimg" src="assets/icon/close.png" alt="" data-dismiss="modal">
             </div>
@@ -14,7 +15,7 @@
                     <tr>
                         <th>#</th>
                         <th><input type="checkbox" (click)="chkallchange()" class="checkall" name="" id=""></th>
-                        <th>item_name</th>
+                        <th>itemName</th>
                         <th>price</th>
                         <th></th>
                     </tr>
@@ -22,13 +23,14 @@
                 <tbody>
                     <tr *ngFor="let cartItem of cartItems;index as i">
                         <td>{{i+1}}</td>
-                        <td><input type="checkbox" (click)="chkwchange()" class="w-check" name="" id=""></td>
+                        <td><input type="checkbox" (click)="chkwchange()" class="w-check" name="" id="{{cartItem.id}}"></td>
                         <td>{{cartItem.item_name}}</td>
-                        <td>{{cartItem.price * cartItem.count}}</td>
+                        <td>{{cartItem.price * cartItem.num_items}}</td>
                         <td>
-                            <img (click)="increment($event,cartItem)" class="iconimg increment"
-                                src="assets/icon/add.png" alt=""><span class="s-count">{{cartItem.count}}</span><img
-                                (click)="decrement($event,cartItem)" class="iconimg decrement"
+                            <input class="nodisplay" #inputIndex tiype="text" value="{{i}}">
+                            <img (click)="increment($event,inputIndex.value)" class="iconimg increment"
+                                src="assets/icon/add.png" alt=""><span class="s-count">{{cartItem.num_items}}</span><img
+                                (click)="decrement($event,inputIndex.value)" class="iconimg decrement"
                                 src="assets/icon/sami.png" alt="">
                         </td>
                     </tr>
